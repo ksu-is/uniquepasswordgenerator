@@ -1,4 +1,4 @@
-# uniquepasswordgenerator
+# unique password generator
 As we all know, coming up with a password is difficult, especially when it requires you to change your password every couple of months.
 We also know how difficult it can be to create a password when there are many requirements such as some characters, including a symbol, and/or a number. The purpose of this software is to create a unique one-of-one password for you that meets all the requirements. 
 There are many benefits to having this password generator. One of them is the time you can save from thinking of a password. Another benefit 
