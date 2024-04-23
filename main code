@@ -1,0 +1,70 @@
+import string
+import random
+
+def generate_password(min_length, max_length, require_numbers, num_count, require_special_chars, special_char_count):
+    characterList = string.ascii_letters
+    if require_numbers:
+        characterList += string.digits * num_count
+    if require_special_chars:
+        characterList += string.punctuation * special_char_count
+    length = random.randint(min_length, max_length)
+    password = [random.choice(characterList) for _ in range(length)]
+    random.shuffle(password)
+    return ''.join(password)
+
+if __name__ == "__main__":
+    print("Enter Password Length Requirements:")
+    while True:
+        try:
+            min_length = int(input("Minimum length: "))
+            max_length = int(input("Maximum length: "))
+            if min_length > max_length or min_length <= 0 or max_length <= 0:
+                print("Invalid length requirements. Minimum length should be less than or equal to maximum length and both should be greater than zero.")
+                continue
+            middle_length = (min_length + max_length) // 2  # Calculate middle value
+            break
+        except ValueError:
+            print("Please enter valid numbers.")
+
+    while True:
+        require_numbers_input = input("Does Password Require Numbers? (yes/no): ").lower()
+        if require_numbers_input == 'yes':
+            require_numbers = True
+            break
+        elif require_numbers_input == 'no':
+            require_numbers = False
+            break
+        else:
+            print("Please enter 'yes' or 'no'.")
+
+    num_count = 0
+    if require_numbers:
+        while True:
+            try:
+                num_count = int(input("How many numbers should the password have? "))
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+
+    while True:
+        require_special_chars_input = input("Does Password Require Special Characters? (yes/no): ").lower()
+        if require_special_chars_input == 'yes':
+            require_special_chars = True
+            break
+        elif require_special_chars_input == 'no':
+            require_special_chars = False
+            break
+        else:
+            print("Please enter 'yes' or 'no'.")
+
+    special_char_count = 0
+    if require_special_chars:
+        while True:
+            try:
+                special_char_count = int(input("How many special characters should the password have? "))
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+
+    generated_password = generate_password(middle_length, max_length, require_numbers, num_count, require_special_chars, special_char_count)
+    print("Generated password:", generated_password)
