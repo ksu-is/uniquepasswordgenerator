@@ -1,3 +1,12 @@
+Changes made to the code are: 
+1. Adding Maximum and Minimum character limits and letting the code decide a random character limit between the max and min.
+2. Adding if numbers are required in the password with a yes or no question the user has to answer. 
+3. Adding if special characters are required in the password with a yes or no question the user has to answer. 
+4. Adding separate loops for numbers and special characters. 
+5. Changed the overall user experience by specifying the password requirements. 
+6. Adding an error message if the user doesn't input the correct options. 
+
+
 import string
 import random
 
